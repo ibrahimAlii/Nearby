@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="place"
+            type="ib.project.nearby.data.Place" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_marginEnd="@dimen/_4sdp"
+        android:layout_marginBottom="@dimen/_4sdp"
+        android:onClick="@{clickListener}">
+
+        <ImageView
+            android:id="@+id/place_item_image"
+            android:layout_width="@dimen/_90sdp"
+            android:layout_height="@dimen/_90sdp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:contentDescription="@string/place_photo"
+            android:scaleType="centerCrop"
+            app:imageFromUrl="@{place.image}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/place_item_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:paddingStart="@dimen/_8sdp"
+            android:paddingEnd="@dimen/_4sdp"
+            android:text="@{place.name}"
+            android:textAppearance="?attr/textAppearanceListItem"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/place_item_image"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Coffee" />
+
+        <TextView
+            android:id="@+id/place_item_desc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:paddingStart="@dimen/_8sdp"
+            android:paddingEnd="@dimen/_4sdp"
+            android:text="@{place.description}"
+            android:textAppearance="?attr/textAppearanceListItem"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/place_item_image"
+            app:layout_constraintTop_toBottomOf="@id/place_item_title"
+            tools:text="Best Coffe ever" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>
